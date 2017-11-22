@@ -9,7 +9,7 @@ Prerequisites to running the program:
 5. Make sure all the other python files are saved under the same directory in /vagrant
 
 Once the VM is up and running the following commands in the BASH Shell:
-1. Run 'psql -d news -f newsdata.sql'
+1. Run 'psql -d news -f newsdata.sql' (make sure you are in the right directory)
 2. Run 'Python Organize_data.py'
 3. Run 'Python Output.py'
 
