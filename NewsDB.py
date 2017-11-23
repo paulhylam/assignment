@@ -4,6 +4,7 @@ import psycopg2
 # The name of the database
 DBNAME = 'news'
 
+
 # Cleaning the data and create the keys connecting table articles and log
 def org_data():
     # connecting to the database and creating the SQL commands
@@ -31,6 +32,7 @@ def org_data():
     db.commit()
     db.close()
 
+    
 def get_top_articles():
     db = psycopg2.connect(database=DBNAME)
     c = db.cursor()
@@ -61,6 +63,7 @@ def get_top_authors():
     return c.fetchall()
     db.close()
 
+    
 def get_error():
     db = psycopg2.connect(database=DBNAME)
     c = db.cursor()
