@@ -82,15 +82,18 @@ def get_error():
               )
     db.commit()
 
-    # Create views for total no. of incidences for each day - i.e. both 200 Success and 404 error
+    # Create views for total no. of incidences for each day
+    # i.e. both 200 Success and 404 error
     c.execute("Create View view_total As "
               "Select date(log.time) as day, count(*) from log "
               "Group by date(log.time); "
               )
     db.commit()
 
-    # Return the ratio of error as a % of total connections for a particular day
-    c.execute("Select view_total.day, 100*view_error.count/view_total.count as error_ratio "
+    # Return the ratio of error as a % of total connections 
+    # for a particular day
+    c.execute("Select view_total.day, " 
+              "100*view_error.count/view_total.count as error_ratio "
               "from view_total "
               "Left Join view_error ON view_error.day=view_total.day "
               "WHERE 100*view_error.count/view_total.count > 1; "
