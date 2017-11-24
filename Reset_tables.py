@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 # importing the library for PostgreSQL operations
 import psycopg2
 
